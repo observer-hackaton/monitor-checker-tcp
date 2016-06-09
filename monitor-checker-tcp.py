@@ -3,8 +3,10 @@ import pika
 import json
 import socket
 
+RABBIT_MQ_SERVER = os.environ["RABBIT_MQ_SERVER"]
+
 connection = pika.BlockingConnection(pika.ConnectionParameters(
-               'localhost'))
+               RABBIT_MQ_SERVER))
 channel = connection.channel()
 channel.queue_declare(queue='tcp')
 
