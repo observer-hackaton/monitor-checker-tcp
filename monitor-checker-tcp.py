@@ -31,7 +31,7 @@ def callback(ch, method, properties, body):
     resp = json.dumps(req)
     print resp
     channel.queue_declare(queue='results')
-    channel.basic_publish(exchange='',
+    channel.basic_publish(exchange='results',
                           routing_key='results',
                           body=resp)
 
